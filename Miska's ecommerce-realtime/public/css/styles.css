@@ -1,0 +1,286 @@
+/* Makeover Online Retail Shop Theme */
+:root {
+  --primary-rose: #E91E63;
+  --primary-dark: #C2185B;
+  --secondary-purple: #9C27B0;
+  --accent-gold: #FFB300;
+  --accent-rose-gold: #FFC1CC;
+  --dark-bg: #1a1a2e;
+  --light-bg: #faf5f9;
+  --text-dark: #2d2d44;
+  --text-light: #ffffff;
+}
+
+body {
+  background-color: var(--light-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar-dark {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #2d2d44 100%) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, var(--accent-rose-gold) 0%, var(--primary-rose) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.nav-link:hover {
+  background-color: rgba(233, 30, 99, 0.2);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: var(--primary-rose);
+  color: var(--text-light) !important;
+}
+
+/* Hero Section */
+.bg-primary {
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-purple) 100%) !important;
+  box-shadow: 0 4px 20px rgba(233, 30, 99, 0.3);
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: white;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 1.2rem;
+}
+
+.card-text {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Price Tag */
+.price-tag {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-rose);
+  background: linear-gradient(135deg, var(--accent-rose-gold) 0%, #fff 100%);
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-dark) 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-rose) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.btn-outline-secondary {
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--primary-rose);
+  border-color: var(--primary-rose);
+  color: white;
+}
+
+.btn-outline-danger {
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  transform: translateY(-2px);
+}
+
+/* Cart Styling */
+#cartItems .cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+#cartItems .cart-row:hover {
+  background-color: #faf5f9;
+  padding-left: 8px;
+  border-radius: 8px;
+}
+
+#checkoutMsg {
+  min-height: 24px;
+}
+
+/* Modal Styling */
+.modal-content {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-purple) 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: 700;
+}
+
+.btn-close {
+  filter: brightness(0) invert(1);
+}
+
+/* Form Styling */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-rose);
+  box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25);
+}
+
+/* Section Headings */
+h2 {
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-purple) 100%);
+  border-radius: 2px;
+}
+
+/* Orders Card */
+.border.rounded {
+  border: 2px solid #f0f0f0 !important;
+  transition: all 0.3s ease;
+}
+
+.border.rounded:hover {
+  border-color: var(--primary-rose) !important;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+  transform: translateX(5px);
+}
+
+/* Text Colors */
+.text-muted {
+  color: #888 !important;
+}
+
+/* Admin Page Specific */
+.table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.table thead {
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-purple) 100%);
+  color: white;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #faf5f9;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+

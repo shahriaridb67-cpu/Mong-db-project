@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard - Makeover Beauty Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; }
+    .summary-card {
+      background: linear-gradient(135deg, var(--primary-rose) 0%, var(--secondary-purple) 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .summary-card h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .summary-card p {
+      margin: 5px 0 0 0;
+      opacity: 0.9;
+    }
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    #adminContent {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Login Form -->
+  <div id="loginForm" class="login-container">
+    <h2 class="text-center mb-4" style="color: var(--primary-rose);">🔒 Admin Login</h2>
+    <form id="adminLoginForm">
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="adminPassword" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <div id="loginError" class="text-danger mt-2 text-center"></div>
+    </form>
+  </div>
+
+  <!-- Admin Dashboard Content -->
+  <div id="adminContent" class="container py-4">
+    <h1 class="mb-4" style="color: var(--primary-rose); font-weight: 700;">✨ Admin Dashboard - Makeover Beauty Shop</h1>
+    <p class="mb-3">
+      <a href="/" class="btn btn-outline-secondary btn-sm">← Back to Store</a>
+      <button id="logoutBtn" class="btn btn-outline-danger btn-sm">Logout</button>
+    </p>
+
+    <!-- Business Summary -->
+    <div class="row mb-4" id="businessSummary">
+      <div class="col-md-4">
+        <div class="summary-card">
+          <i class="fas fa-boxes fa-2x mb-2"></i>
+          <h3 id="totalStock">0</h3>
+          <p>Total Stock</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+          <i class="fas fa-shopping-cart fa-2x mb-2"></i>
+          <h3 id="totalOrders">0</h3>
+          <p>Total Orders</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="summary-card" style="background: linear-gradient(135deg, #FFB300 0%, #FFA000 100%);">
+          <i class="fas fa-dollar-sign fa-2x mb-2"></i>
+          <h3 id="totalSales">0</h3>
+          <p>Total Sales (BDT)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Product Form -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h5 class="mb-0">Add New Product</h5>
+      </div>
+      <div class="card-body">
+        <form id="addProductForm" class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label">Title *</label>
+            <input type="text" class="form-control" id="title" placeholder="Product Title" required />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Price *</label>
+            <input type="number" class="form-control" id="price" placeholder="Price" required />
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Stock *</label>
+            <input type="number" class="form-control" id="stock" placeholder="Stock" required />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Category (e.g., Makeup, Skincare)" />
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" placeholder="Image URL" />
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="imageUpload" accept="image/*" />
+            <small class="text-muted">Accepts all image formats (JPEG, PNG, GIF, WEBP, BMP, SVG, TIFF, etc.) - Max 10MB. Or provide an image URL above.</small>
+            <div id="uploadProgress" class="mt-2" style="display: none;">
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" id="description" placeholder="Product Description" rows="3"></textarea>
+          </div>
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">✨ Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Product List -->
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">Product Management</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead><tr><th>Title</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+          <tbody id="productTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
+
+
